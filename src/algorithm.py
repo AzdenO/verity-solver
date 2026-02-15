@@ -1,4 +1,4 @@
-from src.Swap import Swap
+from Swap import Swap
 
 test_in = "S,T,C"
 test_out = [["T","S"],["T","S"],["C","C"]]
