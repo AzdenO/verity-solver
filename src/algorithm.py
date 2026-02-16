@@ -3,7 +3,8 @@ from Swap import Swap
 test_in = "S,T,C"
 test_out = [["T","S"],["T","S"],["C","C"]]
 
-instructions = []
+
+
 
 OUTSIDE = 0
 KEYS = 1
@@ -15,6 +16,7 @@ MID = 1
 RIGHT = 2
 #######################################################################
 def solve(inside, outside, challenge):
+    instructions = []
     CONTINUE = True
     escape = findKey(inside,challenge)
     print("Escape Shapes: "+str(escape))
@@ -22,8 +24,8 @@ def solve(inside, outside, challenge):
         mismatch = identifyIncorrectShapes(outside,escape)
         swaps = findSwaps(mismatch)
         if len(swaps) == 0:
-            CONTINUE = False
-        performSwap(swaps, outside)
+            break;
+        instructions.append(performSwap(swaps, outside))
     return instructions
 
 
@@ -92,5 +94,5 @@ def performSwap(swaps, outside):
         selected = swaps[0]
     outside[selected.targetPos][outside[selected.targetPos].index(selected.targetShape)] = selected.originShape
     outside[selected.originPos][outside[selected.originPos].index(selected.originShape)] = selected.targetShape
-    instructions.append(selected)
+    return selected
 #######################################################################

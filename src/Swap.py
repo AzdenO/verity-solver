@@ -13,6 +13,6 @@ class Swap:
 ##################################################################################
 
     def __str__(self):
-        return f"{Statue(self.originPos).name} {self.originShape} <--> {Statue(self.targetPos).name} {self.targetShape}"
+        return f"{Statue(self.originPos).name} {self.originShape} <--> {Statue(self.targetPos).name} {self.targetShape} | Perfect Swap: {self.perfect}"
 
 ##################################################################################
